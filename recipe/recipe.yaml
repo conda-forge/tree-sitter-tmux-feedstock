@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: 0.0.4
+  version: "0.1.0"
 
 package:
   name: tree-sitter-tmux
@@ -9,10 +9,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/t/tree-sitter-tmux/tree_sitter_tmux-${{ version }}.tar.gz
-  sha256: c8610c208b6c7c05786d52ec6b5f06912da53311e6ab155b137a22982f0d7c51
+  sha256: 8c2a0781e6145753ed6cfbe152ceaecc2d5c7aa89195a61ef1d7b49532e7b725
 
 build:
-  number: 2
+  number: 0
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
@@ -20,7 +20,7 @@ requirements:
     - ${{ compiler('c') }}
     - ${{ stdlib('c') }}
     - if: build_platform != target_platform
-      then: 
+      then:
         - cross-python_${{ target_platform }}
         - python
   host:
